@@ -32,11 +32,12 @@ export default {
 
       window
         .fetch(
-          `https://content.guardianapis.com/search?q=${this.searchTerm}&format=json&api-key=test`
+          `https://content.guardianapis.com/search?q=${this.searchTerm}&format=json&api-key=test&show-fields=body`
         )
         .then((response) => {
           response.json().then((json) => {
             this.news = json.response.results;
+            console.log(json.response.results)
           });
         });
     },
@@ -45,7 +46,7 @@ export default {
   mounted() {
     window
       .fetch(
-        "https://content.guardianapis.com/search?q=covid&format=json&api-key=test"
+        "https://content.guardianapis.com/search?q=covid&format=json&api-key=test&show-fields=body"
       )
       .then((response) => {
         response.json().then((json) => {
